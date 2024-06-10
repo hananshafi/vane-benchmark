@@ -313,10 +313,10 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Experiments and Results</h2>
+    <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
     <div class="table-container">
       <table class="table is-striped is-hoverable is-fullwidth">
-        <caption>Evaluation results of Video-LMMs across different types of video samples on the VANE benchmark. We present results for both open-source and closed-source models. The first five rows show results on AI-generated videos and last four contain results on real-world anomaly datasets.</caption>
+        <caption>Evaluation results of Video-LMMs across different types of video samples on the VANE benchmark. We present results for both open-source and closed-source models. The first five rows show results on AI-generated videos and last four contain results on real-world anomaly datasets. The evaluation metric is accuracy out of 100.00</caption>
         <thead>
           <tr>
             <th>Benchmark Category</th>
@@ -455,8 +455,70 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Qualitative Results and Other Plots</h2>
+    <!-- Figure 2 -->
+    <figure class="columns is-vcentered">
+      <div class="column is-one-half">
+        <div class="image-container">
+          <a href="./static/images/scatter_plot.png" data-lightbox="scatter-plot" data-title="Scatter Plot">
+            <img src="./static/images/scatter_plot.png" alt="Scatter Plot" style="width: 100%;">
+            <div class="overlay"><i class="fas fa-search-plus"></i></div>
+          </a>
+        </div>
+      </div>
+      <div class="column is-one-half">
+        <div class="image-container">
+          <a href="./static/images/intro_bar_plot_all_datasets.png" data-lightbox="intro-bar-plot" data-title="Bar Plot All Data">
+            <img src="./static/images/intro_bar_plot_all_datasets.png" alt="Intro Bar Plot All Datasets" style="width: 100%;">
+            <div class="overlay"><i class="fas fa-search-plus"></i></div>
+          </a>
+        </div>
+      </div>
+    </figure>
+    <figcaption><strong>Left:</strong> Performance of Video-LMMs on five anomaly categories of SORA dataset. <strong>Right:</strong> Overall performance of Video-LMMs averaged across all the benchmark datasets including AI-generated and real-world anomaly datasets.</figcaption>
 
+    <!-- Figure 5 -->
+    <div class="image-container">
+      <a href="./static/images/bar_plot_sora_human.png" data-lightbox="bar-plot-sora-human" data-title="Human vs Video-LMMs' performance on SORA data.">
+        <figure>
+          <img src="./static/images/bar_plot_sora_human.png" alt="Bar Plot SORA Human" style="width: 100%;">
+        </figure>
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </a>
+      <figcaption><strong>Human vs Video-LMMs' performance on SORA:</strong> Performance comparison of humans vs Video-LMMs on VQA task of detecting anomalies in SORA dataset. We find that closed-source Video-LMMs perform comparably to humans while open-source Video-LMMs struggle to detect the subtle anomalies.</figcaption>
+    </div>
 
+    <div class="content has-text-centered">
+    </div>
+
+    <!-- Figure 8 -->
+    <div class="image-container">
+      <a href="./static/images/vane-appendix-qualitative.png" data-lightbox="vane-appendix-quali" data-title="Additional Qualitative Examples.">
+        <figure>
+          <img src="./static/images/vane-appendix-qualitative.png" alt="Qualitative examples" style="width: 100%;">
+        </figure>
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </a>
+      <figcaption><strong>Qualitative examples:</strong> The figure shows the response of Video-LMMs to the VQA task of detecting anomalies in the video. The correct answer is written in bold in the user query. We find that the majority of Video-LMMs struggle to answer the questions correctly.</figcaption>
+    </div>
+
+    <div class="content has-text-centered">
+    </div>
+
+    <!-- Figure 10 -->
+    <div class="image-container">
+      <a href="./static/images/fam_importance_v3.png" data-lightbox="fam-importance" data-title="Ablation on our Frame Annotation Module.">
+        <figure>
+          <img src="./static/images/fam_importance_v3.png" alt="Frame Annotation Module Ablation" style="width: 100%;">
+        </figure>
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </a>
+      <figcaption>Example showcasing the importance of our <strong>Frame Annotation Module (FAM)</strong>. We note that without FAM, the LMM responsible for generating the captions is not able to identify or describe the accurate anomaly present in the video. However, by providing the bounding box annotation for the inconsistency, we are able to ensure that the generated caption accurately describes the anomaly in the video.</figcaption>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
