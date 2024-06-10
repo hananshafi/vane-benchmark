@@ -39,6 +39,8 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
 </head>
 <body>
 
@@ -195,7 +197,7 @@
 </section>
   
 <h2 class="subtitle has-text-centered">
-          Video samples from VANE-Benchmark. Each video is annotated with the corresponding anomaly types in the form of bounding boxes.
+          Video samples from VANE-Benchmark. Each video is annotated with the corresponding anomaly types in the form of bounding boxes. The videos are slowed down for better visualization.
       </h2>
 <section class="section">
   <div class="container is-max-desktop">
@@ -214,6 +216,244 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Key Contributions. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">VANE-Bench serves as a strong benchmark to improve the performance and capabilities of Video-LMMs on anomaly detection.</h2>
+        <div class="content has-text-justified">
+          <b>Key Contributions:</b>
+          <ol>
+            <li>We present VANE-Bench: Video ANomaly Evaluation Benchmark, consisting of <b>325 video clips, and 559 challenging question-answer pairs</b> from both real-world video surveillance and AI-generated videos.</li>
+            <li>We perform detailed evaluation of over <b>nine state-of-the-art closed-source and open-source Video-LMMs</b> on VANE-Bench, and show that most models exhibit poor performance, highlighting the challenging nature of our proposed benchmark.</li>
+            <li>We conduct detailed result analysis, and also perform human evaluation on VANE-Bench to set a reasonable benchmark target.</li>
+            <li>We open-source our code, and describe the data construction process of VANE-Bench along with making our data publicly available.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!--/ Key Contributions. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Overview -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">VANE-Bench Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            VANE-Bench is a challenging benchmark created to assess video anomaly detection within Large Multimodal Models (LMMs). It consists of 325 video clips, and 559 QA pairs from over nine different AI-generated and real-world video samples, each showcasing different types of anomalies. The subtle, and hard to detect anomalies present within VANE-Bench makes our benchmark challenging for all the SOTA LMMs, and even for few humans. Our benchmark enables the development and evaluation of stronger Video-LMMs for real-world applications like deepfake detection, crime detection, and traffic accidents identification.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <figure class="columns is-vcentered">
+      <div class="column is-one-third">
+        <div class="image-container">
+          <a href="./static/images/ai_generated_donut_anomaly.png" data-lightbox="vane-bench" data-title="AI-generated anomaly">
+            <img src="./static/images/ai_generated_donut_anomaly.png" alt="AI-generated anomaly" style="width: 100%;">
+            <div class="overlay"><i class="fas fa-search-plus"></i></div>
+          </a>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="image-container">
+          <a href="./static/images/real_world_donut_anomaly.png" data-lightbox="vane-bench" data-title="Real-world anomaly">
+            <img src="./static/images/real_world_donut_anomaly.png" alt="Real-world anomaly" style="width: 100%;">
+            <div class="overlay"><i class="fas fa-search-plus"></i></div>
+          </a>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="image-container">
+          <a href="./static/images/bar_plot_vane_bench.png" data-lightbox="vane-bench" data-title="VANE-Bench statistics">
+            <img src="./static/images/bar_plot_vane_bench.png" alt="VANE-Bench statistics" style="width: 100%;">
+            <div class="overlay"><i class="fas fa-search-plus"></i></div>
+          </a>
+        </div>
+      </div>
+    </figure>
+    <figcaption class="has-text-centered">
+      VANE-Bench dataset statistics: <strong>Left and Middle:</strong> Composition and type of anomalies in AI-generated and real-world video samples. <strong>Right:</strong> Number of samples and QA pairs in each video dataset.
+    </figcaption>
+    <!--/ Overview -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- VANE-Bench Construction -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">VANE-Bench Construction</h2>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <a href="./static/images/Main VANE-Bench Flow_v7.png" data-lightbox="vane-bench-construction" data-title="Flow diagram showing VANE-Bench Construction">
+        <img src="./static/images/Main VANE-Bench Flow_v7.png" alt="Flow diagram showing VANE-Bench Construction" style="width: 100%;">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </a>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          We propose a semi-automatic data construction pipeline which we used to construct our VANE-Bench dataset. Since SOTA AI-Generated videos may have subtle and challenging anomalies, we require high quality captions describing all of the specific inconsistencies present in the given video to construct relevant QA pairs. Our pipeline first annotates the anomalies using the frame annotation module (FAM). The caption generating module (CGM) then utilizes these annotations to produce captions, followed by the question-answer generation module (QAGM) creating QA pairs based on the annotated frames and captions. Annotating the clips before caption generation is crucial for focusing the model on the specific anomaly regions in the video.
+        </div>
+      </div>
+    </div>
+    <!-- VANE-Bench Construction -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Experiments and Results</h2>
+    <div class="table-container">
+      <table class="table is-striped is-hoverable is-fullwidth">
+        <caption>Evaluation results of Video-LMMs across different types of video samples on the VANE benchmark. We present results for both open-source and closed-source models. The first five rows show results on AI-generated videos and last four contain results on real-world anomaly datasets.</caption>
+        <thead>
+          <tr>
+            <th>Benchmark Category</th>
+            <th>Video-LLaMA</th>
+            <th>VideoChat</th>
+            <th>Video-ChatGPT</th>
+            <th>Video-LLaVA</th>
+            <th>MovieChat</th>
+            <th>LLaMA-VID</th>
+            <th>TimeChat</th>
+            <th>Gemini-1.5 Pro</th>
+            <th>GPT4o</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">SORA</td>
+            <td>11.59</td>
+            <td>10.74</td>
+            <td>26.47</td>
+            <td>10.86</td>
+            <td>8.69</td>
+            <td>7.97</td>
+            <td>21.73</td>
+            <td>51.45</td>
+            <td>55.80</td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">OpenSORA</td>
+            <td>18.00</td>
+            <td>28.00</td>
+            <td>22.00</td>
+            <td>18.00</td>
+            <td>10.00</td>
+            <td>14.00</td>
+            <td>26.00</td>
+            <td>84.00</td>
+            <td>68.00</td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">Runway Gen2</td>
+            <td>16.00</td>
+            <td>4.00</td>
+            <td>12.00</td>
+            <td>16.00</td>
+            <td>16.00</td>
+            <td>20.00</td>
+            <td>28.00</td>
+            <td>28.00</td>
+            <td>40.00</td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">VideoLCM</td>
+            <td>10.57</td>
+            <td>17.64</td>
+            <td>18.26</td>
+            <td>19.23</td>
+            <td>14.42</td>
+            <td>19.23</td>
+            <td>22.11</td>
+            <td>49.04</td>
+            <td>50.96</td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">Modelscope-T2V</td>
+            <td>10.41</td>
+            <td>20.83</td>
+            <td>16.66</td>
+            <td>16.66</td>
+            <td>6.25</td>
+            <td>14.58</td>
+            <td>20.83</td>
+            <td>75.00</td>
+            <td>64.58</td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">Avenue</td>
+            <td>30.00</td>
+            <td>32.25</td>
+            <td>39.39</td>
+            <td>3.03</td>
+            <td>18.18</td>
+            <td>27.27</td>
+            <td>24.20</td>
+            <td>100.00</td>
+            <td>84.85</td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">UCFCrime</td>
+            <td>9.47</td>
+            <td>11.57</td>
+            <td>31.57</td>
+            <td>10.52</td>
+            <td>18.51</td>
+            <td>15.78</td>
+            <td>7.30</td>
+            <td>76.84</td>
+            <td>83.16</td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">UCSD-Ped1</td>
+            <td>16.66</td>
+            <td>13.33</td>
+            <td>40.00</td>
+            <td>2.77</td>
+            <td>6.66</td>
+            <td>6.66</td>
+            <td>27.58</td>
+            <td>96.67</td>
+            <td>93.33</td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">UCSD-Ped2</td>
+            <td>5.55</td>
+            <td>13.88</td>
+            <td>19.44</td>
+            <td>6.06</td>
+            <td>11.11</td>
+            <td>19.44</td>
+            <td>11.11</td>
+            <td>94.44</td>
+            <td>86.11</td>
+          </tr>
+          <tr></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
 
 
