@@ -94,7 +94,7 @@
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
+              <!-- Video Link.
               <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
@@ -103,10 +103,10 @@
                   </span>
                   <span>Video</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://github.com/rohit901/VANE-Bench/tree/main"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -197,7 +197,7 @@
 </section>
   
 <h2 class="subtitle has-text-centered">
-          Video samples from VANE-Benchmark. Each video is annotated with the corresponding anomaly types in the form of bounding boxes. The videos are slowed down for better visualization.
+          VANE-Benchmark video samples: Anomaly types are indicated with bounding boxes.
       </h2>
 <section class="section">
   <div class="container is-max-desktop">
@@ -312,6 +312,150 @@
 </section>
 
 <section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+    <div class="table-container">
+      <table class="table is-striped is-hoverable is-fullwidth">
+        <caption>Evaluation results of Video-LMMs across different types of video samples on the VANE benchmark. We present results for both open-source and closed-source models. The first five rows show results on AI-generated videos and last four contain results on real-world anomaly datasets. The evaluation metric is accuracy out of 100.00</caption>
+        <thead>
+          <tr>
+            <th>Benchmark Category</th>
+            <th>Video-LLaMA</th>
+            <th>VideoChat</th>
+            <th>Video-ChatGPT</th>
+            <th>Video-LLaVA</th>
+            <th>MovieChat</th>
+            <th>LLaMA-VID</th>
+            <th>TimeChat</th>
+            <th style="background-color: #fdd835;">Gemini-1.5 Pro</th> <!-- Highlighted -->
+            <th style="background-color: #fdd835;">GPT4o</th> <!-- Highlighted -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">SORA</td>
+            <td>11.59</td>
+            <td>10.74</td>
+            <td>26.47</td>
+            <td>10.86</td>
+            <td>8.69</td>
+            <td>7.97</td>
+            <td>21.73</td>
+            <td style="background-color: #fdd835;">51.45</td> <!-- Highlighted -->
+            <td style="background-color: #fdd835;">55.80</td> <!-- Highlighted -->
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">OpenSORA</td>
+            <td>18.00</td>
+            <td>28.00</td>
+            <td>22.00</td>
+            <td>18.00</td>
+            <td>10.00</td>
+            <td>14.00</td>
+            <td>26.00</td>
+            <td style="background-color: #fdd835;">84.00</td> <!-- Highlighted -->
+            <td style="background-color: #fdd835;">68.00</td> <!-- Highlighted -->
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">Runway Gen2</td>
+            <td>16.00</td>
+            <td>4.00</td>
+            <td>12.00</td>
+            <td>16.00</td>
+            <td>16.00</td>
+            <td>20.00</td>
+            <td>28.00</td>
+            <td style="background-color: #fdd835;">28.00</td> <!-- Highlighted -->
+            <td style="background-color: #fdd835;">40.00</td> <!-- Highlighted -->
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">VideoLCM</td>
+            <td>10.57</td>
+            <td>17.64</td>
+            <td>18.26</td>
+            <td>19.23</td>
+            <td>14.42</td>
+            <td>19.23</td>
+            <td>22.11</td>
+            <td style="background-color: #fdd835;">49.04</td> <!-- Highlighted -->
+            <td style="background-color: #fdd835;">50.96</td> <!-- Highlighted -->
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">Modelscope-T2V</td>
+            <td>10.41</td>
+            <td>20.83</td>
+            <td>16.66</td>
+            <td>16.66</td>
+            <td>6.25</td>
+            <td>14.58</td>
+            <td>20.83</td>
+            <td style="background-color: #fdd835;">75.00</td> <!-- Highlighted -->
+            <td style="background-color: #fdd835;">64.58</td> <!-- Highlighted -->
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">Avenue</td>
+            <td>30.00</td>
+            <td>32.25</td>
+            <td>39.39</td>
+            <td>3.03</td>
+            <td>18.18</td>
+            <td>27.27</td>
+            <td>24.20</td>
+            <td style="background-color: #fdd835;">100.00</td> <!-- Highlighted -->
+            <td style="background-color: #fdd835;">84.85</td> <!-- Highlighted -->
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">UCFCrime</td>
+            <td>9.47</td>
+            <td>11.57</td>
+            <td>31.57</td>
+            <td>10.52</td>
+            <td>18.51</td>
+            <td>15.78</td>
+            <td>7.30</td>
+            <td style="background-color: #fdd835;">76.84</td> <!-- Highlighted -->
+            <td style="background-color: #fdd835;">83.16</td> <!-- Highlighted -->
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">UCSD-Ped1</td>
+            <td>16.66</td>
+            <td>13.33</td>
+            <td>40.00</td>
+            <td>2.77</td>
+            <td>6.66</td>
+            <td>6.66</td>
+            <td>27.58</td>
+            <td style="background-color: #fdd835;">96.67</td> <!-- Highlighted -->
+            <td style="background-color: #fdd835;">93.33</td> <!-- Highlighted -->
+          </tr>
+          <tr></tr>
+          <tr>
+            <td rowspan="2">UCSD-Ped2</td>
+            <td>5.55</td>
+            <td>13.88</td>
+            <td>19.44</td>
+            <td>6.06</td>
+            <td>11.11</td>
+            <td>19.44</td>
+            <td>11.11</td>
+            <td style="background-color: #fdd835;">94.44</td> <!-- Highlighted -->
+            <td style="background-color: #fdd835;">86.11</td> <!-- Highlighted -->
+          </tr>
+          <tr></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
     <div class="table-container">
@@ -453,7 +597,7 @@
       </table>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="section">
   <div class="container is-max-desktop">
